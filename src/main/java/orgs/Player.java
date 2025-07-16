@@ -77,7 +77,7 @@ public class Player{
 				}
 			}
 		}catch(IOException e){
-			return 0;
+			return;
 		}
 
 	}
@@ -94,7 +94,7 @@ public class Player{
 		}
 	}
 	public void sendGameResult(Boolean won){
-		p.bet = 0;
+		bet = 0;
 		try{
 			if(won == null){
 				Connections.sendMessage(socket, "TIE GAME CURRENT BALANCE: " + money);
