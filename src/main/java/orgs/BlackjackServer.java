@@ -51,6 +51,7 @@ public class BlackjackServer{
 			dealer.add(deck.draw());
 			int dealerScore = Card.calculateScore(dealer);
 			for(Player p : players){
+				p.getBet();
 				p.hand.add(deck.draw());
 				p.hand.add(deck.draw());
 				p.sendHandInfo();
