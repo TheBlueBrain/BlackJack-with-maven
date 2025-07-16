@@ -63,7 +63,7 @@ public class Player{
 	public void getBet(){
 		try{
 			while(true){
-				Connections.sendMessage(socket, "HOW MUCH TO BET?(INTEGER)");
+				Connections.sendMessage(socket, "CURRENT MONEY AMOUNT: "+ money +"HOW MUCH TO BET?(INTEGER)");
 				String resp = Connections.getMessage(socket);
 				long bet = Long.parseLong(resp);
 				if(bet > money){
