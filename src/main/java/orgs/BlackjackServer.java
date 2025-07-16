@@ -78,8 +78,8 @@ public class BlackjackServer{
 			for(Player p : players){
 				p.score = Card.calculateScore(p.hand);
 				if(p.score == 21 && p.hand.size() == 2 && dealerScore != 21){
-					p.multiplier = 1.5;
-					p.money += (p.bet * p.winMultiplier).floor();
+					p.winMultiplier = 1.5;
+					p.money += Math.floor(p.bet * p.winMultiplier);
 					p.sendGameResult(true);
 
 					p.score = -1;
@@ -131,7 +131,7 @@ public class BlackjackServer{
 			for(Player p : players){
 				if(p.score != -1){
 					if(p.score > dealerScore){
-						p.money += (p.bet * p.winMultiplier).floor();
+						p.money += Math.floor(p.bet * p.winMultiplier);
 						p.sendGameResult(true);
 					}else if(p.score == dealerScore){
 						p.sendGameResult(null);
